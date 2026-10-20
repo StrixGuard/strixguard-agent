@@ -28,6 +28,11 @@ tar -xzf strixguard-agent_linux_${ARCH}.tar.gz
 sudo ./strixguard-agent/install.sh
 ```
 
+`latest` points to the newest production release. For a pre-release, use its
+tag instead, for example
+`https://github.com/StrixGuard/strixguard-agent/releases/download/pre-sha-41abb15e355d/strixguard-agent_linux_amd64.tar.gz`
+(see [Releases](https://github.com/StrixGuard/strixguard-agent/releases)).
+
 Your StrixGuard installation serves the same files, matching its version:
 `https://<your StrixGuard API host>/v1/agent/releases/latest`
 (also shown under **Settings → Agents** in the app).
