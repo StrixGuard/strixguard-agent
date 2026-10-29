@@ -6,10 +6,15 @@ inside your network, without opening any inbound port.
 
 - **Broker mode** (default): the agent relays read-only GitLab requests for
   StrixGuard cloud, which clones and scans. Only the agent is installed.
-- **Local scan**: the agent clones and scans inside your network and sends only
-  findings.
-- The GitLab token stays on the agent host. GitLab hosts and namespaces are
-  pinned in the agent's own configuration; StrixGuard can narrow, never widen.
+- **Local scan**: the agent clones and scans inside your network and uploads
+  findings; normal scans may also upload allowlisted raw scanner artifacts,
+  logs and source-derived excerpts.
+- In the default agent-local custody mode, the GitLab token stays on the agent
+  host. Sealed custody sends the plaintext token to the backend once for
+  sealing. GitLab hosts and namespaces are pinned in the agent's own
+  configuration; StrixGuard can narrow, never widen.
+- AI labeled **local** uses an operator-configured endpoint; it is not
+  guaranteed to run on the agent host unless explicitly constrained.
 
 This repository publishes the agent **releases** (Linux `amd64` and `arm64`).
 The source is maintained by StrixGuard; see [Security](SECURITY.md) for
